@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhlSystemClassLibrary", "NhlSystemClassLibrary\NhlSystemClassLibrary.csproj", "{AEE39F18-5CCE-4AE7-BDA1-8CF693078391}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEE39F18-5CCE-4AE7-BDA1-8CF693078391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEE39F18-5CCE-4AE7-BDA1-8CF693078391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEE39F18-5CCE-4AE7-BDA1-8CF693078391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEE39F18-5CCE-4AE7-BDA1-8CF693078391}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F0731EC4-96CD-4580-89CD-A6F39D2C0C9F}
+	EndGlobalSection
+EndGlobal
