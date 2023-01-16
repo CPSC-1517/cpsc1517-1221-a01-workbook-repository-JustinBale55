@@ -10,7 +10,7 @@ namespace NhlSystemClassLibrary
     {
         Atlantic,
         Central,
-        Metropolitan,
+        Metropolitan, 
         Pacific
     }
 }
