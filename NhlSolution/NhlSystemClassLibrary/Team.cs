@@ -82,6 +82,32 @@ namespace NhlSystemClassLibrary
         public Conference Conference { get; set; }
         public Division Division { get; set; }
 
+        public List<Player> players { get; private set; } = new List<Player>();
+
+
+        //TODO: Add method to add a new Player
+        //1) Validate newPlayer is not null
+        //2) Validate newPlayer PlayerNo is not alredy on the players list
+        public void AddPlayer(Player newPlayer)
+        {
+            if (newPlayer == null)
+            {
+                throw new ArgumentNullException(nameof(AddPlayer),"Player cannot be null");
+            }
+            foreach(var existingplayer in players)
+            {
+                if (newPlayer.PlayerNo == existingplayer.PlayerNo)
+                {
+                    throw new ArgumentException($"PlayerNo {newPlayer.PlayerNo} is already in the team");
+                }
+            }
+            if (players.Count == 23)
+            {
+                throw new ArgumentException("Team is full. Cannot add anymore players");
+            }
+            players.Add(newPlayer);
+        }
+
         //Greedy constructor
         public Team(string Name, string city, string arena, Conference conference, Division division)
         {
@@ -90,6 +116,7 @@ namespace NhlSystemClassLibrary
             Arena = arena;
             Conference = conference;
             Division = division;
+            players = new List<Player>();
 
             //     OR
             //_name = Name;

@@ -6,57 +6,52 @@ using System.Threading.Tasks;
 
 namespace NhlSystemClassLibrary
 {
-    internal class Player
+    public class Player
     {
+        const int MinPlayerMo = 1;
+        const int MaxPlayerMo = 98;
+
+
         private int _playerNo;
-        private string _name;
+        private string _playerName;
         private int _gamesPlayed;
         private int _goals;
-        private int _Assists;
+        private int _assists;
         private int _points;
 
-        public Position Position { get; set; }
+        public Position Position { get; private set; }
 
         public int PlayerNo
         {
-            get
+            get => _playerNo;
+            private set
             {
-                return _playerNo;
-            }
-            set
-            {
-                if (value < 0 || value > 98)
+                if (value < MinPlayerMo || value > MaxPlayerMo)
                 {
-                    throw new ArgumentException("Player Number must be between 1-98");
+                    throw new ArgumentException($"Player Number must be between {MinPlayerMo} and {MaxPlayerMo}");
                 }
                 _playerNo = value;
             }
         }
         public string Name
         {
-            get
-            {
-                return _name;
-            }
-            set
+            get => _playerName;
+            private set
             {
                 //Validate new value is not blank
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentNullException(nameof(Name), "Name cannot be blank");
+                    throw new ArgumentException(nameof(Name), "Name cannot be blank");
                 }
-                _name = value.Trim();
+                _playerName = value.Trim();
             }
         }
         public int GamesPlayed
         {
-            get
+            get => _gamesPlayed;
+            protected set
             {
-                return _gamesPlayed;
-            }
-            set
-            {
-                if (value < 0)
+                if (!Utilities.IsPositiveOrZero(value))
                 {
                     throw new ArgumentException("Games played must be greater than or equal to 0");
                 }
@@ -65,13 +60,10 @@ namespace NhlSystemClassLibrary
         }
         public int Goals
         {
-            get
+            get => _goals;
+            private set
             {
-                return _goals;
-            }
-            set
-            {
-                if (value < 0)
+                if (!Utilities.IsPositiveOrZero(value))
                 {
                     throw new ArgumentException("Goals must be greater than or equal to 0");
                 }
@@ -80,30 +72,52 @@ namespace NhlSystemClassLibrary
         }
         public int Assists
         {
-            get
+            get => _assists;
+            private set
             {
-                return _Assists;
-            }
-            set
-            {
-                if (value < 0)
+                if (!Utilities.IsPositiveOrZero(value))
                 {
                     throw new ArgumentException("Assists must be greater than or equal to 0");
                 }
-                _Assists = value;
+                _assists = value;
             }
         }
+        //public int Points => Goals + Assists; //Same as below code 
         public int Points
         {
             get
             {
-                return _points;
+                return Goals + Points;
             }
-            set
-            {
-                //Not sure
-                _points = value;
-            }
+        }
+
+        public Player(int playerNo, string name, Position position)
+        {
+            _playerNo = playerNo;
+            Name = name;
+            Position = position;
+        }
+        public Player(int playerNo, string name, Position position, int gamesPlayed, int goals, int assists)
+        {
+            _playerNo = playerNo;
+            Name = name;
+            Position = position;
+            GamesPlayed = gamesPlayed;
+            Goals = goals;
+            Assists = assists;
+        }
+
+        public void AddGamesPlayed()
+        {
+            GamesPlayed += 1;
+        }
+        public void AddGoals()
+        {
+            Goals += 1;
+        }
+        public void AddAssists()
+        {
+            Assists++;
         }
 
 
