@@ -162,12 +162,13 @@ namespace NhlSystemTestProject
             }
             catch (ArgumentException ex)
             {
-                StringAssert.Contains(ex.Message, "Games played must be greater than or equal to 0");
+                //Dont need??
+                StringAssert.Contains(ex.Message, "Games played must be greater than or equal to 0"); 
                 Assert.AreEqual(ex.Message, "Games played must be greater than or equal to 0");
             }
             catch (Exception ex)
             {
-                Assert.Fail("Incorrect exeption type thrown");
+                Assert.Fail("Incorrect exeption type thrown"); 
             }
         }
     }

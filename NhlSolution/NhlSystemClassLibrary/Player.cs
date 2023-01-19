@@ -82,7 +82,7 @@ namespace NhlSystemClassLibrary
                 _assists = value;
             }
         }
-        //public int Points => Goals + Assists; //Same as below code 
+        //public int Points => Goals + Assists; //Same as below code
         public int Points
         {
             get
